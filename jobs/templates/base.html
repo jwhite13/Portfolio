@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <script type="text/javascript" src="{{ STATIC_URL }} /static/js/jquery-3.5.1.js"></script> 
+    <link rel='stylesheet' href="{% static 'css/base.css' %}">
+</head>
+<body>
+    <div id=page-wrapper>
+        <div id=header-bar>
+            <div id=header-title class='header-item'>Projects</div>
+        </div>
+        <div id='page-content'>
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+</body>

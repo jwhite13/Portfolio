@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <link rel='stylesheet' href="{% static 'css/project.css' %}">
+    <img class='cover-photo' src='{{ project.cover_photo.url}}'>
+
+    <h1 class='individual-project-title'>{{ project.title }}</h1>
+    <p>{{ project.long_summary }}</p>
+{% endblock content %}

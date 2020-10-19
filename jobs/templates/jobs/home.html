@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<script type="text/javascript" src={% static 'js/home.js' %}></script>
+<link rel='stylesheet' href="{% static 'css/home.css' %}">
+<div id=projects-wrapper>
+{% for job in jobs.all%}
+    <div class='project-square'>
+        <img class='project-image' src='{{ job.image.url}}'>
+        <div class='project-info' onclick="goToLocalURL('projects/{{job.id}}')">
+            <h2 class='project-title'>
+                {{job.title}}
+            </h2>
+            <p class='project-summary'>
+                {{job.summary}}
+            </p>
+            {% if job.category != NULL or job.year != NULL %}
+                <div class='project-tags'>
+                    {% if job.category != NULL %}
+                        <div class='tag category'>
+                            {{job.category}}
+                        </div>
+                    {% endif %}
+                    {% if job.year != NULL %}
+                        <div class='tag year'>
+                            {{job.year}} 
+                        </div>
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
+</div>
+{% endblock content %}
